@@ -24,15 +24,15 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class QuestionServiceImpl implements QuestionService {
 
     @Value("${questions_max_count}")
     Integer questionsMaxCount;
 
-    QuestionRepository questionRepository;
-    AnswerRepository answerRepository;
-    UserAnswerRepository userAnswerRepository;
+    final QuestionRepository questionRepository;
+    final AnswerRepository answerRepository;
+    final UserAnswerRepository userAnswerRepository;
 
 
     @Override
