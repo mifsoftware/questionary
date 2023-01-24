@@ -1,0 +1,23 @@
+server:
+  port: ${SERVER_PORT:7005}
+  servlet:
+    context-path: /api/v1
+spring:
+  datasource:
+    username: ${DATASOURCE_USERNAME:postgres}
+    password: ${DATASOURCE_PASSWORD:postgres}
+    url: jdbc:postgresql://${DATABASE_ADDRESS:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:test_db}
+  liquibase:
+    enabled: true
+    drop-first: false
+    change-log: classpath:db.changelog/db.changelog-master.xml
+    default-schema: public
+jwt:
+  secret: ${JWT_SECRET_TOKEN:e349f7fae93d135c7491fea7bd266c80c1902b31ce06215cef2731e3fcf1be92Y}
+  expire: 3600000
+
+admin:
+  login: ${ADMIN_LOGIN:admin123}
+  password: ${ADMIN_PASSWORD:12345a}
+
+questions_max_count: 5
